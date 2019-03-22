@@ -20,5 +20,14 @@ export class VehicleComponent implements OnInit {
     })
 
   }
+  toggleAdd:boolean = false;
+  toggleMode() {
+    this.toggleAdd = !this.toggleAdd;
+  }
+  vehicleName;
 
+  addVehicle() {
+    let createVehicle:Vehicle = {id:'', name:this.vehicleName};
+    this.serviceVehicle.addVehicle(createVehicle).subscribe();
+  }
 }

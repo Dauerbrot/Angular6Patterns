@@ -12,24 +12,27 @@ export class DataService {
   httpEndPoint = 'http://';
   port = ':8080/';
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
   constructor(private http: HttpClient) {
   }
+  path = this.httpEndPoint + this.ip + this.port;
 
   getVehicle(): Observable<Vehicle[]> {
 
-    const path = this.httpEndPoint + this.ip + this.port + 'Vehicle';
 
-    return this.http.get<Vehicle[]>(path, {}).pipe(
+    return this.http.get<Vehicle[]>(this.path + 'Vehicle', {}).pipe(
       map(result => {
         return result;
       })
     )
+  }
+
+  addVehicle(vehicle:Vehicle): Observable<any>{
+
+    return this.http.post(this.path + 'AddVehicle',vehicle,{}).pipe(result =>{
+      console.log(result);
+      return result;
+    })
+
   }
 
   clickMe() {

@@ -3,6 +3,14 @@
 </p>
 
 <div>
+  <button type="button" (click)="toggleMode()">plus</button>
+  <div (show)="toggleAdd">
+    <input type="text" [(ngModel)]="vehicleName">
+    <button type="button" (click)="addVehicle()"></button>
+  </div>
+</div>
+
+<div>
   <table>
     <thead>
     </thead>
