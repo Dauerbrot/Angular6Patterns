@@ -27,12 +27,7 @@ export class DataService {
   }
 
   addVehicle(vehicle:Vehicle): Observable<any>{
-
-    return this.http.post(this.path + 'AddVehicle',vehicle,{}).pipe(result =>{
-      console.log(result);
-      return result;
-    })
-
+    return this.http.post(this.path + 'AddVehicle',vehicle,{});
   }
 
   clickMe() {

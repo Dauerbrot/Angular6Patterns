@@ -4,8 +4,9 @@
 
 <div>
   <button type="button" (click)="toggleMode()">plus</button>
-  <div (show)="toggleAdd">
+  <div [hidden]="toggleAdd">
     <input type="text" [(ngModel)]="vehicleName">
+    <input type="text" [(ngModel)]="vehicleId">
     <button type="button" (click)="addVehicle()"></button>
   </div>
 </div>
